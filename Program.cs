@@ -15,8 +15,42 @@ namespace LesBouclesExo4
             //Bonus 1 : Le nombre défini au départ est aléatoire.
             //Bonus 2 : Vous affichez le nombre de tentatives.
 
-            
+
             Random aleatoire = new Random();
+            int secretnumber = aleatoire.Next(1, 51);
+            int attempts = 1; // nombre d'essaie 
+            int success = 0;
+
+            Console.WriteLine("Devine un nombre entre 1 et 50 ");
+            int input = int.Parse(Console.ReadLine());
+
+            do
+            {
+                if (input == secretnumber)
+                {
+                    Console.WriteLine($"essaie n°{attempts} \n Gagné !");
+                    success = 1;
+                }
+                else if (input < secretnumber)
+                {
+                    Console.WriteLine($"essaie n° {attempts} \n trop petit, retente ta chance !");
+                    attempts++;
+                    input = int.Parse(Console.ReadLine());
+                }
+                else if (input > secretnumber)
+                {
+                    Console.WriteLine($"essaie n° {attempts} \n Ah trop grand!  retente ta chance !");
+                    attempts++;
+                    input = int.Parse(Console.ReadLine());
+                }
+            } while (success == 0);
+        }
+            
+            
+            
+            
+            
+            /*Random aleatoire = new Random();
             int number = aleatoire.Next(1, 10); // Génère un entier compris entre 1 et 50
             int numberFound;
             int start = 0;
@@ -46,7 +80,7 @@ namespace LesBouclesExo4
             }
 
                 start++;
-                Console.WriteLine($"Bravo vous avez trouvé en {start} coups !");
+                Console.WriteLine($"Bravo vous avez trouvé en {start} coups !");*/
 
 
             //Console.WriteLine("Le nombre est compris entre 1 et 50 :" );
@@ -55,6 +89,8 @@ namespace LesBouclesExo4
             //Console.WriteLine("Deviner le nombre entre 1 et 50:" /*+ number*/);
             //numberFound = Convert.ToInt32(Console.ReadLine());
 
+            
+
         }
     }
-}
+
